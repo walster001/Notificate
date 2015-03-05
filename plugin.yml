@@ -1,0 +1,52 @@
+name: CallAdmin
+main: com.arweth.calladmin.CallAdmin
+version: 1.8.2
+author: Arweth
+description: Allows players to call an admin using a simple command
+
+commands:
+  calladmin:
+    description: Calls an Admin
+    usage: /calladmin !help
+    aliases: [ca, contactadmin]
+  call:
+    description: Calls an admin by username
+    usage: /call [name] <message>
+    aliases: [cd, calldirect, contact]
+permissions:
+  calladmin.*:
+    description: Gives access to all CallAdmin commands
+    default: false
+    children:
+      calladmin.call: true
+      calladmin.modify: true
+      calladmin.auth.add: true
+      calladmin.auth.modify: true
+      calladmin.auth.remove: true
+      calladmin.auth.list: true
+      calladmin.auth.mypass: false
+      calladmin.onlinelist: true
+  calladmin.call:
+    description: Allows you to call an admin
+    default: true
+  calladmin.modify:
+    description: Allows you to modify the configuration of calladmin
+    default: op
+  calladmin.auth.add:
+    descripton: Allows you to add more login information for remote clients
+    default: false
+  calladmin.auth.modify:
+    descripton: Allows you to modify login information for remote clients
+    default: false
+  calladmin.auth.remove:
+    descripton: Allows you to remove login information from calladmin
+    default: false
+  calladmin.auth.list:
+    description: Allows you to list all users stored in the config file
+    default: false
+  calladmin.auth.mypass:
+    descripton: Allows the user to change the password of the logged in user in CallAdmin
+    default: false
+  calladmin.onlinelist:
+      descripton: Lists all admins that are currently monitoring
+      default: op
